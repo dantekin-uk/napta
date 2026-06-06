@@ -117,54 +117,94 @@ const PartnersPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-16 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
+          {/* Main Background Container - Matching SystemBlocks design */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="bg-gradient-to-r from-napta-navy via-napta-blue to-napta-brightBlue rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-10 lg:p-12 text-center shadow-xl overflow-hidden relative"
+            className="relative overflow-hidden rounded-2xl sm:rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-800 p-6 sm:p-8 lg:p-12"
           >
-            {/* Decorative elements */}
-            <div className="absolute -top-12 -left-12 w-40 h-40 bg-napta-green/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-napta-lightGreen/10 rounded-full blur-3xl" />
-            
+            {/* Corner Glow Patches - Matching SystemBlocks */}
+            <div className="absolute top-0 left-0 w-96 h-96 bg-napta-blue/20 rounded-full blur-3xl opacity-70"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-napta-green/20 rounded-full blur-3xl opacity-70"></div>
+
+            {/* Decorative floating elements */}
+            <motion.div
+              className="absolute top-10 right-10 w-20 h-20 border border-white/10 rounded-full"
+              animate={{ 
+                scale: [1, 1.1, 1],
+                opacity: [0.3, 0.5, 0.3]
+              }}
+              transition={{ duration: 4, repeat: Infinity }}
+            ></motion.div>
+            <motion.div
+              className="absolute bottom-20 left-16 w-12 h-12 border border-napta-green/20 rounded-full"
+              animate={{ 
+                scale: [1, 1.2, 1],
+                opacity: [0.2, 0.4, 0.2]
+              }}
+              transition={{ duration: 5, repeat: Infinity, delay: 0.5 }}
+            ></motion.div>
+
+            {/* Content */}
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
-                <svg className="w-4 h-4 text-napta-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                </svg>
-                <p className="text-white/80 text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                  Join Our Network
-                </p>
-              </div>
-              
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
-                Partner with us to drive change
-              </h2>
-              
-              <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
-                Join our growing network of partners and collaborators to help transform sustainable public transport across Africa.
-              </p>
-              
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.98 }}
-                className="inline-flex items-center gap-2 bg-napta-green hover:bg-napta-lightGreen text-white font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-napta-green/30 transition-all duration-300 text-sm sm:text-base"
-              >
-                Become a Partner
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Left Content */}
                 <motion.div
-                  animate={{ x: 0 }}
-                  whileHover={{ x: 4 }}
-                  transition={{ duration: 0.2 }}
+                  className="lg:col-span-7"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
+                  <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
+                    <div className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full"></div>
+                    <span className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
+                      Join Our Network
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+                    Partner with us to drive <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-blue">Change</span>
+                  </h2>
+
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal mb-0">
+                    Join our growing network of partners and collaborators to help transform sustainable public transport across Africa.
+                  </p>
                 </motion.div>
-              </motion.a>
+
+                {/* Right - CTA Button */}
+                <motion.div
+                  className="lg:col-span-5"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-napta-green/20 to-napta-blue/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50"></div>
+                    <div className="relative">
+                      <motion.a
+                        href="#contact"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-napta-green/20 hover:shadow-xl hover:shadow-napta-green/30 relative overflow-hidden group"
+                      >
+                        <span className="absolute inset-0 bg-gradient-to-r from-napta-blue to-napta-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative flex items-center gap-2">
+                          Become a Partner
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </span>
+                      </motion.a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
           </motion.div>
         </div>
