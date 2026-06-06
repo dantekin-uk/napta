@@ -215,6 +215,16 @@ function Header() {
                 </div>
               </div>
             ))}
+            <a
+              href="#"
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('team');
+              }}
+              className={`nav-link px-3 py-2 rounded-lg transition-all duration-300 ${currentPage === 'team' ? 'text-napta-green' : ''}`}
+            >
+              Our Team
+            </a>
             <a href="#summit" className="nav-link px-3 py-2 rounded-lg transition-all duration-300">
               The Summit
             </a>
@@ -302,6 +312,21 @@ function Header() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo('team');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green ${currentPage === 'team' ? 'text-napta-green' : ''}`}
+                  >
+                    Our Team
+                  </motion.a>
+
+                  <motion.a
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35 }}
                     href="#summit"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green"
@@ -312,7 +337,7 @@ function Header() {
                   <motion.a
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.35 }}
+                    transition={{ delay: 0.4 }}
                     href="#services"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green"
