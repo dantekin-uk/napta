@@ -115,6 +115,60 @@ const PartnersPage = () => {
           ))}
         </div>
       </section>
+
+      {/* CTA Section */}
+      <section className="py-12 sm:py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-napta-navy via-napta-blue to-napta-brightBlue rounded-3xl sm:rounded-[2.5rem] p-8 sm:p-10 lg:p-12 text-center shadow-xl overflow-hidden relative"
+          >
+            {/* Decorative elements */}
+            <div className="absolute -top-12 -left-12 w-40 h-40 bg-napta-green/10 rounded-full blur-3xl" />
+            <div className="absolute -bottom-12 -right-12 w-40 h-40 bg-napta-lightGreen/10 rounded-full blur-3xl" />
+            
+            <div className="relative z-10">
+              <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
+                <svg className="w-4 h-4 text-napta-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+                <p className="text-white/80 text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
+                  Join Our Network
+                </p>
+              </div>
+              
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight">
+                Partner with us to drive change
+              </h2>
+              
+              <p className="text-white/70 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed">
+                Join our growing network of partners and collaborators to help transform sustainable public transport across Africa.
+              </p>
+              
+              <motion.a
+                href="#contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-2 bg-napta-green hover:bg-napta-lightGreen text-white font-semibold px-8 py-4 rounded-2xl shadow-lg shadow-napta-green/30 transition-all duration-300 text-sm sm:text-base"
+              >
+                Become a Partner
+                <motion.div
+                  animate={{ x: 0 }}
+                  whileHover={{ x: 4 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                  </svg>
+                </motion.div>
+              </motion.a>
+            </div>
+          </motion.div>
+        </div>
+      </section>
     </div>
   );
 };
