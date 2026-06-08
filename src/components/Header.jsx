@@ -9,8 +9,8 @@ function Header() {
     {
       label: 'About Us',
       items: [
-        { label: 'Our Story & Values', href: '#our-story' },
-        { label: 'The Team', href: '#our-team' },
+        { label: 'Our Story & Values', href: 'story', isPage: true },
+        { label: 'Our Team', href: 'team', isPage: true },
         { label: 'Our Partners', href: 'partners', isPage: true }
       ]
     },
@@ -215,21 +215,8 @@ function Header() {
                 </div>
               </div>
             ))}
-            <a
-              href="#"
-              onClick={(e) => {
-                e.preventDefault();
-                navigateTo('team');
-              }}
-              className={`nav-link px-3 py-2 rounded-lg transition-all duration-300 ${currentPage === 'team' ? 'text-napta-green' : ''}`}
-            >
-              Our Team
-            </a>
             <a href="#summit" className="nav-link px-3 py-2 rounded-lg transition-all duration-300">
               The Summit
-            </a>
-            <a href="#services" className="nav-link px-3 py-2 rounded-lg transition-all duration-300">
-              Services
             </a>
           </nav>
 
@@ -297,9 +284,17 @@ function Header() {
                         {menu.items.map((item, i) => (
                           <a
                             key={i}
-                            href={item.href}
-                            onClick={() => setMobileMenuOpen(false)}
-                            className="block py-1.5 text-gray-700 text-xs hover:text-napta-navy font-medium transition-all duration-300"
+                            href={item.isPage ? '#' : item.href}
+                            onClick={(e) => {
+                              if (item.isPage) {
+                                e.preventDefault();
+                                navigateTo(item.href);
+                                setMobileMenuOpen(false);
+                              } else {
+                                setMobileMenuOpen(false);
+                              }
+                            }}
+                            className={`block py-1.5 text-gray-700 text-xs hover:text-napta-navy font-medium transition-all duration-300 ${item.isPage && currentPage === item.href ? 'text-napta-green' : ''}`}
                           >
                             {item.label}
                           </a>
@@ -312,21 +307,6 @@ function Header() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      navigateTo('team');
-                      setMobileMenuOpen(false);
-                    }}
-                    className={`block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green ${currentPage === 'team' ? 'text-napta-green' : ''}`}
-                  >
-                    Our Team
-                  </motion.a>
-
-                  <motion.a
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.35 }}
                     href="#summit"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green"
@@ -334,21 +314,10 @@ function Header() {
                     The Summit
                   </motion.a>
 
-                  <motion.a
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 }}
-                    href="#services"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green"
-                  >
-                    Services
-                  </motion.a>
-
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.45 }}
+                    transition={{ delay: 0.4 }}
                     className="pt-3"
                   >
                     <a
