@@ -245,66 +245,96 @@ const StoryAndValuesPage = () => {
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-14"
+            transition={{ duration: 0.7 }}
+            className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-800 p-8 sm:p-12 lg:p-16 shadow-2xl"
           >
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-              <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                Our Partnerships
-              </p>
-            </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-3">
-              Memberships
-            </h2>
-            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-              Strategic relationships to strengthen our causes
-            </p>
-          </motion.div>
+            {/* Decorative corner glow patches */}
+            <div className="absolute -top-16 -left-16 w-48 h-48 bg-napta-blue/20 rounded-full blur-3xl opacity-70" />
+            <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-napta-green/20 rounded-full blur-3xl opacity-70" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-            {[
-              {
-                title: "Nairobi Air Quality Working Group",
-                description: "Convened by World Resources Institute (WRI), National Environment Management Authority (NEMA), and Nairobi City County. The working group offers a platform and network of professional engagements aimed towards reduction of air pollution in Kenya."
-              },
-              {
-                title: "Socially Just Public Transport Working Group",
-                description: "Convened by Friedrich Ebert Stiftung (FES Kenya). The working group champions for inclusive mobility in Kenya."
-              }
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, y: 0, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.2 }}
-                whileHover={{ y: -4 }}
-                className="bg-gradient-to-br from-slate-50 to-white rounded-3xl p-6 sm:p-8 border border-slate-100/60 shadow-sm hover:shadow-xl transition-all duration-300"
-              >
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-10 h-10 bg-gradient-to-br from-napta-green/10 to-napta-blue/10 rounded-xl flex items-center justify-center">
-                      <svg className="w-5 h-5 text-napta-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-3 leading-tight">
-                      {item.title}
-                    </h3>
-                    <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
+            {/* Floating animation elements */}
+            <motion.div
+              className="absolute top-10 right-10 w-14 h-14 border border-white/10 rounded-2xl"
+              animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
+              transition={{ duration: 5, repeat: Infinity }}
+            />
+            <motion.div
+              className="absolute bottom-10 left-10 w-10 h-10 border border-white/10 rounded-full"
+              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15] }}
+              transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
+            />
+
+            <div className="relative z-10">
+              {/* Header */}
+              <div className="text-center mb-10 sm:mb-14">
+                <div className="inline-flex items-center gap-2 mb-4">
+                  <span className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full" />
+                  <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
+                    Strategic Relationships
+                  </p>
                 </div>
-              </motion.div>
-            ))}
-          </div>
+                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
+                  Our Memberships
+                </h2>
+                <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
+                  Strategic relationships to strengthen our causes
+                </p>
+              </div>
+
+              {/* Content */}
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                {[
+                  {
+                    title: "Nairobi Air Quality Working Group",
+                    description: "Convened by World Resources Institute (WRI), National Environment Management Authority (NEMA), and Nairobi City County. The working group offers a platform and network of professional engagements aimed towards reduction of air pollution in Kenya.",
+                    icon: (
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    title: "Socially Just Public Transport Working Group",
+                    description: "Convened by Friedrich Ebert Stiftung (FES Kenya). The working group champions for inclusive mobility in Kenya.",
+                    icon: (
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                      </svg>
+                    )
+                  }
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -30 : 30 }}
+                    whileInView={{ opacity: 1, y: 0, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    whileHover={{ y: -4 }}
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-300"
+                  >
+                    <div className="flex items-start gap-5">
+                      <div className="flex-shrink-0">
+                        <div className="w-14 h-14 bg-gradient-to-br from-napta-green to-napta-blue rounded-2xl flex items-center justify-center shadow-lg shadow-napta-green/30">
+                          {item.icon}
+                        </div>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg sm:text-xl font-extrabold text-white mb-3 leading-tight">
+                          {item.title}
+                        </h3>
+                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                          {item.description}
+                        </p>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
         </div>
       </section>
 
