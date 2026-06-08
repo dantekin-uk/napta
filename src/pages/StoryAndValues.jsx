@@ -1,8 +1,17 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Compass, Zap, Heart, Globe } from 'lucide-react';
+import { Compass, Globe, Target, Zap, Heart, Eye, Eye as EyeIcon } from 'lucide-react';
 
 const StoryAndValuesPage = () => {
+  const coreValues = [
+    { icon: Compass, title: 'Independence' },
+    { icon: Globe, title: 'Collaboration' },
+    { icon: Target, title: 'Relevance' },
+    { icon: Zap, title: 'Excellence' },
+    { icon: Heart, title: 'Integrity' },
+    { icon: EyeIcon, title: 'Entrepreneurialism' }
+  ];
+
   return (
     <div className="min-h-screen bg-slate-50">
       {/* Hero Section */}
@@ -15,7 +24,7 @@ const StoryAndValuesPage = () => {
           >
             <div className="inline-flex items-center gap-2 mb-3">
               <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-              <p className="text-white/80 text-[9px] sm:text-[10px] font-semibold tracking-[0.15em] uppercase">
+              <p className="text-white/80 text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
                 About Us
               </p>
             </div>
@@ -29,35 +38,32 @@ const StoryAndValuesPage = () => {
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
+      {/* Mission & Vision */}
       <section className="py-10 sm:py-14 bg-slate-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10">
-            {/* Vision Card with Image */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+            {/* Vision Card */}
             <motion.div
-              initial={{ opacity: 0, x: -40 }}
+              initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
               className="relative overflow-hidden rounded-3xl shadow-xl"
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-napta-navy to-slate-900">
+              <div className="absolute inset-0 bg-gradient-to-br from-slate-900 to-slate-800">
                 <img
                   src="https://images.unsplash.com/photo-1544620347-c4fd4a3d8587?auto=format&fit=crop&w=900&q=80"
                   alt="Public transport"
                   className="w-full h-full object-cover opacity-40"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/60 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/60 to-transparent" />
               </div>
-
               <div className="relative p-8 sm:p-10 lg:p-12">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-napta-blue/90 to-napta-brightBlue/90 rounded-xl flex items-center justify-center shadow-lg">
                     <Eye className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-1">
-                    Our Vision
-                  </h3>
+                  <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-1">Our Vision</h3>
                 </div>
                 <p className="text-white/90 text-sm sm:text-lg leading-relaxed">
                   To help build a transportation system that fosters economic vitality, advances social equity, conserves the environment, and improves the quality of life for all.
@@ -65,37 +71,33 @@ const StoryAndValuesPage = () => {
               </div>
             </motion.div>
 
-            {/* Mission (No Card - Direct on Background */}
+            {/* Mission Card */}
             <motion.div
-              initial={{ opacity: 0, x: 40 }}
+              initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col justify-center"
+              transition={{ duration: 0.6, delay: 0.15 }}
+              className="bg-white rounded-3xl p-8 sm:p-10 lg:p-12 border border-slate-100 shadow-xl"
             >
-              <div className="inline-flex items-center gap-2 mb-3">
-                <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-                <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                  Mission
-                </p>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-gradient-to-br from-napta-green/10 to-napta-blue/10 rounded-xl flex items-center justify-center">
+                  <Target className="w-6 h-6 text-napta-green" />
+                </div>
+                <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 mb-1">Our Mission</h3>
               </div>
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">
-                Our Mission
-              </h3>
-              <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-4">
+              <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-5">
                 To shape public debate on critical transportation issues and build an innovative network of transportation professionals to progress this sector socially, economically, and technically.
               </p>
-
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {[
                   "Promoting improved mobility on a national scale",
                   "Being the national network of collective transport professionals",
                   "Being the point of reference for knowledge on collective transport",
-                  "Being the national forum for transport policy",
+                  "Being the national forum in the area of transport policy",
                   "Advocating for collective transport"
-                ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2 text-slate-600 text-sm">
-                    <div className="w-1.5 h-1.5 bg-napta-green rounded-full mt-2 flex-shrink-0" />
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
+                    <div className="w-1.5 h-1.5 bg-napta-green rounded-full mt-2.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
                 ))}
@@ -105,7 +107,7 @@ const StoryAndValuesPage = () => {
         </div>
       </section>
 
-      {/* Our Story Section - Content + Image like Home Page */}
+      {/* Our Story Section */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -119,13 +121,9 @@ const StoryAndValuesPage = () => {
             >
               <div className="inline-flex items-center gap-2 mb-3">
                 <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-                <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                  Our Journey
-                </p>
+                <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Our Journey</p>
               </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4">
-                Our Story
-              </h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4">Our Story</h2>
 
               <div className="space-y-4 mb-6">
                 <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -142,13 +140,15 @@ const StoryAndValuesPage = () => {
                   "Collaborating with key stakeholders to drive impactful change",
                   "Enhancing systems through research and innovation"
                 ].map((item, idx) => (
-                  <div key={idx} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
-                    <div className="w-8 h-8 bg-gradient-to-br from-napta-green/10 to-napta-blue/10 rounded-lg flex items-center justify-center mb-2">
-                      <CheckIcon />
+                    <div key={idx} className="bg-slate-50 rounded-xl p-4 border border-slate-100">
+                      <div className="w-8 h-8 bg-gradient-to-br from-napta-green/10 to-napta-blue/10 rounded-lg flex items-center justify-center mb-2">
+                        <svg className="w-4 h-4 text-napta-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">{item}</p>
                     </div>
-                    <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">{item}</p>
-                  </div>
-                ))}
+                  ))}
               </div>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -180,68 +180,50 @@ const StoryAndValuesPage = () => {
         </div>
       </section>
 
-      {/* Our Values Section */}
+      {/* Core Values Section */}
       <section className="py-12 sm:py-16 bg-slate-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 sm:mb-14"
-          >
-            <div className="inline-flex items-center gap-2 mb-3">
-              <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-              <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                Guiding Principles
+          <div className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] bg-white p-8 sm:p-10 lg:p-14 shadow-xl">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="mb-10 sm:mb-12"
+            >
+              <div className="inline-flex items-center gap-2 mb-3">
+                <span className="w-6 h-[2px] bg-napta-green rounded-full" />
+                <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Guiding Principles</p>
+              </div>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-3">Our Core Values</h2>
+              <p className="text-slate-600 text-sm sm:text-base max-w-2xl">
+                These core values are reflected in everything we do.
               </p>
+            </motion.div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+              {coreValues.map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.03 }}
+                  className="bg-slate-50 rounded-2xl sm:rounded-3xl p-6 sm:p-7 border border-slate-100 hover:border-napta-green/20 hover:shadow-lg hover:bg-slate-50/70 transition-all duration-300 text-center"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-br from-napta-green to-napta-blue rounded-2xl flex items-center justify-center mb-5 mx-auto shadow-md">
+                    <item.icon className="w-7 h-7 text-white" />
+                  </div>
+                  <h3 className="text-sm sm:text-base font-bold text-slate-900">{item.title}</h3>
+                </motion.div>
+              ))}
             </div>
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-3">
-              Our Core Values
-            </h2>
-          </motion.div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
-            {[
-              { icon: Compass, title: 'Independence' },
-              { icon: Globe, title: 'Collaboration' },
-              { icon: Target, title: 'Relevance' },
-              { icon: Zap, title: 'Excellence' },
-              { icon: Heart, title: 'Integrity' },
-              { icon: Eye, title: 'Entrepreneurialism' }
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20, scale: 0.9 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1, type: "spring" }}
-                whileHover={{ y: -6, scale: 1.03 }}
-                className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-100/50 shadow-sm hover:shadow-xl hover:border-napta-green/20 transition-all duration-300 text-center"
-              >
-                <div className="w-14 h-14 bg-gradient-to-br from-napta-green to-napta-blue rounded-2xl flex items-center justify-center mb-5 mx-auto shadow-lg shadow-napta-green/20">
-                  <value.icon className="w-7 h-7 text-white" />
-                </div>
-                <h3 className="text-sm sm:text-base font-bold text-slate-900 mb-1">{value.title}</h3>
-              </motion.div>
-            ))}
           </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="text-center mt-10 sm:mt-12"
-          >
-            <p className="text-slate-600 text-sm sm:text-base max-w-2xl mx-auto">
-              These core values are reflected in everything we do.
-            </p>
-          </motion.div>
         </div>
       </section>
 
-      {/* Memberships Section */}
+      {/* Memberships Section (SystemBlocks style) */}
       <section className="py-12 sm:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div
@@ -251,45 +233,24 @@ const StoryAndValuesPage = () => {
             transition={{ duration: 0.7 }}
             className="relative overflow-hidden rounded-3xl sm:rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-800 p-8 sm:p-12 lg:p-16 shadow-2xl"
           >
-            {/* Decorative corner glow patches */}
             <div className="absolute -top-16 -left-16 w-48 h-48 bg-napta-blue/20 rounded-full blur-3xl opacity-70" />
             <div className="absolute -bottom-16 -right-16 w-48 h-48 bg-napta-green/20 rounded-full blur-3xl opacity-70" />
 
-            {/* Floating animation elements */}
-            <motion.div
-              className="absolute top-10 right-10 w-14 h-14 border border-white/10 rounded-2xl"
-              animate={{ scale: [1, 1.1, 1], opacity: [0.2, 0.4, 0.2] }}
-              transition={{ duration: 5, repeat: Infinity }}
-            />
-            <motion.div
-              className="absolute bottom-10 left-10 w-10 h-10 border border-white/10 rounded-full"
-              animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.35, 0.15] }}
-              transition={{ duration: 4, repeat: Infinity, delay: 0.5 }}
-            />
-
-            <div className="relative z-10">
-              {/* Header */}
-              <div className="text-center mb-10 sm:mb-14">
-                <div className="inline-flex items-center gap-2 mb-4">
+            <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10">
+              <div className="lg:col-span-4">
+                <div className="inline-flex items-center gap-2 mb-3">
                   <span className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full" />
-                  <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                    Strategic Relationships
-                  </p>
+                  <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Strategic Relationships</p>
                 </div>
-                <h2 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white mb-4 leading-tight tracking-tight">
-                  Our Memberships
-                </h2>
-                <p className="text-slate-300 text-sm sm:text-base max-w-2xl mx-auto">
-                  Strategic relationships to strengthen our causes
-                </p>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4">Our Memberships</h2>
+                <p className="text-slate-300 text-sm sm:text-base">Strategic relationships to strengthen our causes</p>
               </div>
 
-              {/* Content */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+              <div className="lg:col-span-8 grid grid-cols-1 gap-4 sm:gap-6">
                 {[
                   {
                     title: "Nairobi Air Quality Working Group",
-                    description: "Convened by World Resources Institute (WRI), National Environment Management Authority (NEMA), and Nairobi City County. The working group offers a platform and network of professional engagements aimed towards reduction of air pollution in Kenya.",
+                    description: "Convened by World Resources Institute (WRI), National Environment Management Authority (NEMA), and Nairobi City County.",
                     icon: (
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
@@ -298,7 +259,7 @@ const StoryAndValuesPage = () => {
                   },
                   {
                     title: "Socially Just Public Transport Working Group",
-                    description: "Convened by Friedrich Ebert Stiftung (FES Kenya). The working group champions for inclusive mobility in Kenya.",
+                    description: "Convened by Friedrich Ebert Stiftung (FES Kenya). Champions for inclusive mobility in Kenya.",
                     icon: (
                       <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
@@ -308,12 +269,12 @@ const StoryAndValuesPage = () => {
                 ].map((item, index) => (
                   <motion.div
                     key={index}
-                    initial={{ opacity: 0, y: 30, x: index % 2 === 0 ? -30 : 30 }}
+                    initial={{ opacity: 0, y: 20, x: index % 2 === 0 ? -20 : 20 }}
                     whileInView={{ opacity: 1, y: 0, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.6, delay: index * 0.2 }}
+                    transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                     whileHover={{ y: -4 }}
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-8 transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl sm:rounded-3xl p-6 sm:p-7 transition-all duration-300"
                   >
                     <div className="flex items-start gap-5">
                       <div className="flex-shrink-0">
@@ -322,10 +283,10 @@ const StoryAndValuesPage = () => {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-lg sm:text-xl font-extrabold text-white mb-3 leading-tight">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-white mb-2 sm:mb-2 leading-tight">
                           {item.title}
                         </h3>
-                        <p className="text-slate-300 text-sm sm:text-base leading-relaxed">
+                        <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed">
                           {item.description}
                         </p>
                       </div>
@@ -338,95 +299,44 @@ const StoryAndValuesPage = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-10 sm:py-14 bg-white overflow-hidden">
+      {/* CTA Section (unique design, different from SystemBlocks */}
+      <section className="py-10 sm:py-14 bg-slate-50">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="relative overflow-hidden rounded-2xl sm:rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-800 p-6 sm:p-8 lg:p-12"
+            className="text-center"
           >
-            {/* Corner Glow Patches */}
-            <div className="absolute top-0 left-0 w-96 h-96 bg-napta-blue/20 rounded-full blur-3xl opacity-70" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-napta-green/20 rounded-full blur-3xl opacity-70" />
-
-            {/* Decorative floating elements */}
-            <motion.div
-              className="absolute top-10 right-10 w-20 h-20 border border-white/10 rounded-full"
-              animate={{
-                scale: [1, 1.1, 1],
-                opacity: [0.3, 0.5, 0.3]
-              }}
-              transition={{ duration: 4, repeat: Infinity }}
-            />
-
-            {/* Content */}
-            <div className="relative z-10">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-                {/* Left Content */}
-                <motion.div
-                  className="lg:col-span-7"
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5 }}
-                >
-                  <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
-                    <div className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full" />
-                    <span className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                      Join Our Mission
-                    </span>
-                  </div>
-
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
-                    Be part of the movement transforming public transport in Africa
-                  </h2>
-
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal mb-0">
-                    Whether you're a government partner, operator, donor, or community member, there's a role for you in our journey.
-                  </p>
-                </motion.div>
-
-                {/* Right - CTA Button */}
-                <motion.div
-                  className="lg:col-span-5"
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-gradient-to-r from-napta-green/20 to-napta-blue/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50" />
-                    <div className="relative">
-                      <a
-                        href="#contact"
-                        className="group w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition-all duration-300 shadow-md shadow-napta-green/20 hover:shadow-xl hover:shadow-napta-green/30"
-                      >
-                        <span className="relative flex items-center gap-2">
-                          Get Involved
-                          <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                          </svg>
-                        </span>
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
+            <div className="inline-flex items-center justify-center gap-2 mb-4">
+              <span className="w-6 h-[2px] bg-napta-green rounded-full" />
+              <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
+                Get Involved
+              </p>
             </div>
+
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4 sm:mb-5 leading-tight tracking-tight">
+              Be part of the movement transforming public transport in Africa
+            </h2>
+
+            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-7 sm:mb-8">
+              Whether you're a government partner, operator, donor, or community member, there's a role for you in our journey.
+            </p>
+
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-4 px-7 sm:py-5 sm:px-10 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-napta-green/20 hover:shadow-2xl hover:shadow-napta-green/30 hover:scale-105"
+            >
+              Join Our Network
+              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+              </svg>
+            </a>
           </motion.div>
         </div>
       </section>
     </div>
   );
 };
-
-// Checkmark icon component
-const CheckIcon = () => (
-  <svg className="w-4 h-4 text-napta-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-  </svg>
-);
 
 export default StoryAndValuesPage;
