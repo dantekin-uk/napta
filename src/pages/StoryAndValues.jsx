@@ -28,10 +28,10 @@ const StoryAndValuesPage = () => {
                 About Us
               </p>
             </div>
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-2 leading-tight">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-2 leading-tight tracking-tight">
               Our Story & <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-lightGreen">Values</span>
             </h1>
-            <p className="text-white/70 text-[11px] sm:text-xs max-w-2xl leading-relaxed">
+            <p className="text-white/70 text-[11px] sm:text-xs max-w-2xl leading-relaxed font-normal">
               Driven by a shared vision for sustainable, equitable public transport across Africa.
             </p>
           </motion.div>
@@ -63,9 +63,9 @@ const StoryAndValuesPage = () => {
                   <div className="w-12 h-12 bg-gradient-to-br from-napta-blue/90 to-napta-brightBlue/90 rounded-xl flex items-center justify-center shadow-lg">
                     <Eye className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-1">Our Vision</h3>
+                  <h3 className="text-lg sm:text-2xl font-extrabold text-white mb-1 tracking-tight">Our Vision</h3>
                 </div>
-                <p className="text-white/90 text-sm sm:text-lg leading-relaxed">
+                <p className="text-white/90 text-sm sm:text-lg leading-relaxed font-normal">
                   To help build a transportation system that fosters economic vitality, advances social equity, conserves the environment, and improves the quality of life for all.
                 </p>
               </div>
@@ -83,9 +83,9 @@ const StoryAndValuesPage = () => {
                 <div className="w-12 h-12 bg-gradient-to-br from-napta-green/10 to-napta-blue/10 rounded-xl flex items-center justify-center">
                   <Target className="w-6 h-6 text-napta-green" />
                 </div>
-                <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 mb-1">Our Mission</h3>
+                <h3 className="text-lg sm:text-2xl font-extrabold text-slate-900 mb-1 tracking-tight">Our Mission</h3>
               </div>
-              <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed mb-5">
+              <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed font-normal mb-5">
                 To shape public debate on critical transportation issues and build an innovative network of transportation professionals to progress this sector socially, economically, and technically.
               </p>
               <ul className="space-y-3">
@@ -96,7 +96,7 @@ const StoryAndValuesPage = () => {
                   "Being the national forum in the area of transport policy",
                   "Advocating for collective transport"
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
+                  <li key={i} className="flex items-start gap-3 text-slate-600 text-sm font-normal">
                     <div className="w-1.5 h-1.5 bg-napta-green rounded-full mt-2.5 flex-shrink-0" />
                     <span>{item}</span>
                   </li>
@@ -123,13 +123,13 @@ const StoryAndValuesPage = () => {
                 <span className="w-6 h-[2px] bg-napta-green rounded-full" />
                 <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Our Journey</p>
               </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4">Our Story</h2>
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4 tracking-tight">Our Story</h2>
 
               <div className="space-y-4 mb-6">
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Since its establishment, NAPTA has been dedicated to transforming public transport by promoting sustainability, efficiency, and inclusivity. With a strong focus on collaboration and innovation, we strive to enhance the quality of urban mobility for all.
                 </p>
-                <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+                <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                   Through strategic partnerships and policy advocacy, we work to address challenges in the public transport sector, fostering a future where mobility is safe, affordable, and environmentally responsible.
                 </p>
               </div>
@@ -146,12 +146,12 @@ const StoryAndValuesPage = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
                       </div>
-                      <p className="text-slate-700 text-xs sm:text-sm leading-relaxed">{item}</p>
+                      <p className="text-slate-700 text-xs sm:text-sm leading-relaxed font-normal">{item}</p>
                     </div>
                   ))}
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal">
                 We believe that by working together, we can create a future where public transport is not just a necessity but a seamless and reliable experience for all.
               </p>
             </motion.div>
@@ -195,8 +195,8 @@ const StoryAndValuesPage = () => {
                 <span className="w-6 h-[2px] bg-napta-green rounded-full" />
                 <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Guiding Principles</p>
               </div>
-              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-3">Our Core Values</h2>
-              <p className="text-slate-600 text-sm sm:text-base max-w-2xl">
+              <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-3 tracking-tight">Our Core Values</h2>
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-2xl">
                 These core values are reflected in everything we do.
               </p>
             </motion.div>
@@ -242,8 +242,8 @@ const StoryAndValuesPage = () => {
                   <span className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full" />
                   <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">Strategic Relationships</p>
                 </div>
-                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4">Our Memberships</h2>
-                <p className="text-slate-300 text-sm sm:text-base">Strategic relationships to strengthen our causes</p>
+                <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-4 tracking-tight">Our Memberships</h2>
+                <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-normal">Strategic relationships to strengthen our causes</p>
               </div>
 
               <div className="lg:col-span-8 grid grid-cols-1 gap-4 sm:gap-6">
@@ -283,10 +283,10 @@ const StoryAndValuesPage = () => {
                         </div>
                       </div>
                       <div className="flex-1">
-                        <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-white mb-2 sm:mb-2 leading-tight">
+                        <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-white mb-2 sm:mb-2 leading-tight tracking-tight">
                           {item.title}
                         </h3>
-                        <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed">
+                        <p className="text-slate-300 text-xs sm:text-sm lg:text-base leading-relaxed font-normal">
                           {item.description}
                         </p>
                       </div>
@@ -299,39 +299,74 @@ const StoryAndValuesPage = () => {
         </div>
       </section>
 
-      {/* CTA Section (unique design, different from SystemBlocks */}
-      <section className="py-10 sm:py-14 bg-slate-50">
+      {/* CTA Section - Now matches NewsletterCTA/SystemBlocks completely! */}
+      <section className="py-10 sm:py-14 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="relative overflow-hidden rounded-2xl sm:rounded-[3rem] bg-gradient-to-br from-slate-900 to-slate-800 p-6 sm:p-8 lg:p-12"
           >
-            <div className="inline-flex items-center justify-center gap-2 mb-4">
-              <span className="w-6 h-[2px] bg-napta-green rounded-full" />
-              <p className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
-                Get Involved
-              </p>
+            <div className="absolute top-0 left-0 w-96 h-96 bg-napta-blue/20 rounded-full blur-3xl opacity-70"></div>
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-napta-green/20 rounded-full blur-3xl opacity-70"></div>
+
+            <div className="relative z-10">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Left Content */}
+                <motion.div
+                  className="lg:col-span-7"
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="inline-flex items-center gap-2 mb-3 sm:mb-4">
+                    <div className="w-6 h-[2px] bg-gradient-to-r from-napta-green to-napta-blue rounded-full"></div>
+                    <span className="text-napta-green text-[10px] sm:text-xs font-semibold tracking-[0.15em] uppercase">
+                      Get Involved
+                    </span>
+                  </div>
+
+                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white mb-3 sm:mb-4 leading-tight tracking-tight">
+                    Be part of the movement transforming public transport in Africa
+                  </h2>
+
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed font-normal mb-0">
+                    Whether you're a government partner, operator, donor, or community member, there's a role for you in our journey.
+                  </p>
+                </motion.div>
+
+                {/* Right - CTA Button */}
+                <motion.div
+                  className="lg:col-span-5"
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-r from-napta-green/20 to-napta-blue/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50"></div>
+                    <div className="relative">
+                      <motion.a
+                        href="#contact"
+                        whileHover={{ scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="group w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-3 sm:py-3.5 rounded-xl text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-napta-green/20 hover:shadow-xl hover:shadow-napta-green/30 relative overflow-hidden"
+                      >
+                        <span className="absolute inset-0 bg-gradient-to-r from-napta-blue to-napta-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                        <span className="relative flex items-center gap-2">
+                          Join Our Network
+                          <svg className="w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                          </svg>
+                        </span>
+                      </motion.a>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
             </div>
-
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-slate-900 mb-4 sm:mb-5 leading-tight tracking-tight">
-              Be part of the movement transforming public transport in Africa
-            </h2>
-
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto mb-7 sm:mb-8">
-              Whether you're a government partner, operator, donor, or community member, there's a role for you in our journey.
-            </p>
-
-            <a
-              href="#contact"
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-4 px-7 sm:py-5 sm:px-10 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-napta-green/20 hover:shadow-2xl hover:shadow-napta-green/30 hover:scale-105"
-            >
-              Join Our Network
-              <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-              </svg>
-            </a>
           </motion.div>
         </div>
       </section>
