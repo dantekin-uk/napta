@@ -1,10 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Play } from 'lucide-react';
+import { useNavigation } from '../contexts/NavigationContext';
 import summitPoster from '../assets/summitf5c (4).png';
 
 const AnnualEvents = () => {
   const summitUrl = 'https://www.kenyatransportsummit.com';
+  const { navigateTo } = useNavigation();
 
   return (
     <section id="summit" className="py-10 sm:py-14 bg-canvas overflow-hidden relative">
@@ -33,22 +35,30 @@ const AnnualEvents = () => {
           </p>
         </motion.div>
 
-        <div className="relative rounded-2xl bg-white ring-1 ring-slate-200/70 shadow-[0_4px_24px_-8px_rgba(15,37,87,0.08)] p-4 sm:p-6 lg:p-8 overflow-hidden">
+        <div 
+          onClick={() => navigateTo('summit')}
+          className="relative rounded-2xl bg-white ring-1 ring-slate-200/70 shadow-[0_4px_24px_-8px_rgba(15,37,87,0.08)] p-4 sm:p-6 lg:p-8 overflow-hidden cursor-pointer hover:shadow-[0_8px_32px_-12px_rgba(15,37,87,0.15)] transition-all duration-300"
+        >
           <span className="absolute top-3 left-3 sm:top-4 sm:left-4 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-l-2 border-napta-green/40 rounded-tl-sm pointer-events-none" />
           <span className="absolute top-3 right-3 sm:top-4 sm:right-4 w-4 h-4 sm:w-5 sm:h-5 border-t-2 border-r-2 border-napta-blue/30 rounded-tr-sm pointer-events-none" />
           <span className="absolute bottom-3 left-3 sm:bottom-4 sm:left-4 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-l-2 border-napta-blue/30 rounded-bl-sm pointer-events-none" />
           <span className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 w-4 h-4 sm:w-5 sm:h-5 border-b-2 border-r-2 border-napta-green/40 rounded-br-sm pointer-events-none" />
           <div className="absolute top-1/2 left-0 w-8 h-px bg-gradient-to-r from-napta-green/50 to-transparent -translate-y-1/2 hidden lg:block pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-6 items-start lg:items-center relative">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 sm:gap-8 lg:gap-6 items-start md:items-center relative">
             {/* Copy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="lg:col-span-5 flex flex-col justify-center order-1"
+              className="md:col-span-5 lg:col-span-5 flex flex-col justify-center order-1"
             >
+              <div className="mb-2">
+                <h3 className="text-sm sm:text-base font-bold text-napta-navy">
+                  Kenya Transport Summit and Expo 2026
+                </h3>
+              </div>
               <div className="flex items-start gap-3 mb-4">
                 <span className="w-px h-10 sm:h-12 bg-napta-green/60 shrink-0 mt-1" />
                 <p className="text-xs sm:text-sm text-slate-700 italic leading-relaxed">
@@ -78,7 +88,7 @@ const AnnualEvents = () => {
             </motion.div>
 
             {/* Poster + Video — side by side on sm+, stacked on xs */}
-            <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-5 sm:gap-4 order-2">
+            <div className="md:col-span-7 lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-7 gap-5 sm:gap-4 order-2">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}

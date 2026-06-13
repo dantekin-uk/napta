@@ -1,4 +1,8 @@
+import { useNavigation } from '../contexts/NavigationContext';
+
 function Toper() {
+  const { navigateTo } = useNavigation();
+  
   return (
     <div className="bg-napta-green py-1">
       <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
@@ -21,10 +25,46 @@ function Toper() {
 
           {/* Links (Visible on All Screens) */}
           <div className="flex items-center justify-around w-full sm:w-auto gap-2 sm:gap-6 py-0.5">
-            <a href="#resources" className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium">Resources</a>
-            <a href="#blogs" className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium">Blogs</a>
-            <a href="#faqs" className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium">FAQs</a>
-            <a href="#contact" className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium">Contact</a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('blog');
+              }}
+              className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium"
+            >
+              Blogs
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('news');
+              }}
+              className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium"
+            >
+              News
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('faq');
+              }}
+              className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium"
+            >
+              FAQs
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('contact');
+              }}
+              className="text-white text-[11px] sm:text-xs md:text-sm hover:text-napta-navy transition-colors font-medium"
+            >
+              Contact
+            </a>
           </div>
         </div>
       </div>

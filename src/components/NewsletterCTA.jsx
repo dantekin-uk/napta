@@ -8,6 +8,8 @@ const NewsletterCTA = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
+      // Open user's email client to send to news@napta.or.ke
+      window.location.href = `mailto:news@napta.or.ke?subject=Newsletter Subscription&body=Please subscribe me to the NAPTA newsletter. My email is: ${email}`;
       setIsSubscribed(true);
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);
@@ -43,10 +45,10 @@ const NewsletterCTA = () => {
 
           {/* Content */}
           <div className="relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <motion.div
-                className="lg:col-span-6"
+                className="md:col-span-6 lg:col-span-6"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -70,7 +72,7 @@ const NewsletterCTA = () => {
 
               {/* Right - Newsletter Form */}
               <motion.div
-                className="lg:col-span-6"
+                className="md:col-span-6 lg:col-span-6"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}

@@ -1,19 +1,24 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigation } from '../contexts/NavigationContext';
+import new1Image from '../assets/home/new1.jpeg';
+import new2Image from '../assets/home/new2.jpeg';
 
 const News = () => {
+  const { navigateTo } = useNavigation();
+  
   const newsItems = [
     {
-      date: 'May 28, 2026',
-      headline: 'New Urban Fleet Modernization Framework Released.',
-      image: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&q=80&w=1200',
-      type: 'short'
+      date: 'June 1, 2025',
+      headline: 'NAPTA Partners with Taita Taveta County Government',
+      image: new1Image,
+      type: 'tall'
     },
     {
-      date: 'June 5, 2026',
-      headline: 'Strategic Partnership Signed with Taita Taveta County Government.',
-      image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200',
-      type: 'tall'
+      date: 'May 29, 2025',
+      headline: 'NAPTA CEO Featured on Citizen TV Discussing Urban Air Quality',
+      image: new2Image,
+      type: 'short'
     }
   ];
 
@@ -40,10 +45,14 @@ const News = () => {
             </h2>
           </div>
           <motion.a
-            href="#all-news"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              navigateTo('news');
+            }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-2 bg-napta-green hover:bg-napta-lightGreen text-white font-semibold px-4 py-2.5 rounded-lg text-xs sm:text-sm shadow-md shadow-napta-green/20 transition-all duration-300 w-fit group"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold px-4 py-2.5 rounded-lg text-xs sm:text-sm shadow-md shadow-napta-green/20 transition-all duration-300 w-fit group"
           >
             View All News
             <svg 

@@ -1,31 +1,60 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigation } from '../contexts/NavigationContext';
 
-// Import partner logos (same as PartnersSection)
-const partnerModules = import.meta.glob('../assets/partners/*.{png,jpg,jpeg,webp,avif}', {
-  eager: true,
-  import: 'default',
-});
+// Import partner logos in exact requested order
+import partner2 from '../assets/partners/partner2.png';
+import partner3 from '../assets/partners/partner3.png';
+import partner12 from '../assets/partners/partner12.webp';
+import partnerJpeg from '../assets/partners/partner.jpeg';
+import partner2_1 from '../assets/partners/partner2 (1).webp';
+import partner23 from '../assets/partners/partner23.png';
+import partner21_1 from '../assets/partners/partner21 (1).jpg';
+import partner16_1 from '../assets/partners/partner16 (1).jpg';
+import partner15 from '../assets/partners/partner15.webp';
+import partner4_1 from '../assets/partners/partner4 (1).webp';
+import partner5 from '../assets/partners/partner5.webp';
+import partner17_1 from '../assets/partners/partner17 (1).jpg';
+import partner18_1 from '../assets/partners/partner18 (1).png';
+import partner19 from '../assets/partners/partner19.jpg';
+import partner20 from '../assets/partners/partner20.jpeg';
+import partner22 from '../assets/partners/partner22.png';
+import partner23_1 from '../assets/partners/partner23 (1).png';
+import partner28 from '../assets/partners/partner28.jpeg';
+import partner26 from '../assets/partners/partner26.jpg';
+import partner25_1 from '../assets/partners/partner25 (1).png';
+import partner1 from '../assets/partners/partner1.png';
+import partner14_1 from '../assets/partners/partner14 (1).webp';
+import partner10 from '../assets/partners/partner10.webp';
+import partner7_1 from '../assets/partners/partner7 (1).webp';
 
-const partnerLogos = Object.entries(partnerModules)
-  .filter(([path]) => !path.includes(' (1)'))
-  .map(([, src]) => src)
-  .sort();
-
-// Categorize partners - for demo, we'll split into 3 categories
-// In real app, you might want to organize these differently
+// Categorize partners in exact requested order
 const categories = [
   {
     name: 'Government & Regulatory',
-    logos: partnerLogos.slice(0, Math.ceil(partnerLogos.length / 3)),
+    logos: [partner2, partner3, partner12, partnerJpeg, partner2_1],
   },
   {
     name: 'International Development',
-    logos: partnerLogos.slice(Math.ceil(partnerLogos.length / 3), Math.ceil(partnerLogos.length * 2 / 3)),
+    logos: [partner23, partner21_1, partner16_1, partner15, partner4_1, partner5],
   },
   {
     name: 'Operator Alliances',
-    logos: partnerLogos.slice(Math.ceil(partnerLogos.length * 2 / 3)),
+    logos: [
+      partner17_1,
+      partner18_1,
+      partner19,
+      partner20,
+      partner22,
+      partner23_1,
+      partner28,
+      partner26,
+      partner25_1,
+      partner1,
+      partner14_1,
+      partner10,
+      partner7_1,
+    ],
   },
 ];
 
@@ -49,8 +78,9 @@ const LogoCard = ({ src, index }) => (
 );
 
 const PartnersPage = () => {
+  const { navigateTo } = useNavigation();
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-canvas">
       {/* Hero Section - Slightly taller with gradient */}
       <section className="relative bg-gradient-to-r from-napta-navy via-napta-blue to-napta-brightBlue rounded-b-[2rem] sm:rounded-b-[3rem] shadow-xl overflow-hidden py-12 sm:py-16 mx-1 sm:mx-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
@@ -66,8 +96,8 @@ const PartnersPage = () => {
               </p>
             </div>
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-3 leading-tight">
-              Our Network &amp; <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-lightGreen">Partners</span>
-            </h1>
+            Our Network &amp; <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-blue">Partners</span>
+          </h1>
             <p className="text-white/70 text-[13px] sm:text-sm max-w-2xl leading-relaxed">
               Driving sustainable public transport requires collaboration. We work hand-in-hand with governments, development partners, and industry leaders to transform mobility across Africa.
             </p>
@@ -79,7 +109,7 @@ const PartnersPage = () => {
       <div className="h-px bg-slate-200 mx-1 sm:mx-1" />
 
       {/* Main Content - More modern with lighter background */}
-      <section className="py-12 sm:py-16 lg:py-20 bg-slate-50">
+      <section className="py-12 sm:py-16 lg:py-20 bg-canvas-alt">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {categories.map((category, categoryIndex) => (
             <motion.div
@@ -187,8 +217,11 @@ const PartnersPage = () => {
                   <div className="relative">
                     <div className="absolute inset-0 bg-gradient-to-r from-napta-green/20 to-napta-blue/20 rounded-2xl sm:rounded-3xl blur-xl opacity-50"></div>
                     <div className="relative">
-                      <motion.a
-                        href="#contact"
+                      <motion.button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          navigateTo('contact');
+                        }}
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
                         className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold py-4 sm:py-5 rounded-xl sm:rounded-2xl text-xs sm:text-sm transition-all duration-300 shadow-lg shadow-napta-green/20 hover:shadow-xl hover:shadow-napta-green/30 relative overflow-hidden group"
@@ -200,7 +233,7 @@ const PartnersPage = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                           </svg>
                         </span>
-                      </motion.a>
+                      </motion.button>
                     </div>
                   </div>
                 </motion.div>

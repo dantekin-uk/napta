@@ -193,7 +193,7 @@ const TeamPage = () => {
   const [selectedMember, setSelectedMember] = useState(null);
 
   return (
-    <div className="min-h-screen bg-slate-50">
+    <div className="min-h-screen bg-canvas">
       {/* Hero Section - Exact like Partners Page */}
       <section className="relative bg-gradient-to-r from-napta-navy via-napta-blue to-napta-brightBlue rounded-b-[2rem] sm:rounded-b-[3rem] shadow-xl overflow-hidden py-10 sm:py-12 mx-1 sm:mx-1">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20">
@@ -209,8 +209,8 @@ const TeamPage = () => {
               </p>
             </div>
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-extrabold text-white mb-2 leading-tight">
-              Leadership & <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-lightGreen">Network</span>
-            </h1>
+            Leadership &amp; <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-blue">Network</span>
+          </h1>
             <p className="text-white/70 text-[11px] sm:text-xs max-w-2xl leading-relaxed">
               A multidisciplinary steering committee driving sustainable public transport across Africa.
             </p>
@@ -227,7 +227,7 @@ const TeamPage = () => {
             viewport={{ once: true }}
             className="mb-6 sm:mb-8"
           >
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Board of Directors</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-napta-navy">Board of <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-blue">Directors</span></h2>
           </motion.div>
 
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
@@ -270,7 +270,7 @@ const TeamPage = () => {
       <div className="h-px bg-slate-200 mx-1 sm:mx-1" />
 
       {/* Management Team Section */}
-      <section className="py-10 sm:py-14 bg-slate-50">
+      <section className="py-10 sm:py-14 bg-canvas-alt">
         <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -278,7 +278,7 @@ const TeamPage = () => {
             viewport={{ once: true }}
             className="mb-6 sm:mb-8"
           >
-            <h2 className="text-xl sm:text-2xl font-bold text-slate-900">Management Team</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-napta-navy">Management <span className="bg-clip-text text-transparent bg-gradient-to-r from-napta-green to-napta-blue">Team</span></h2>
           </motion.div>
 
           <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">

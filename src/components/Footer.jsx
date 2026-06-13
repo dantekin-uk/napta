@@ -1,35 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useNavigation } from '../contexts/NavigationContext';
 
 const Footer = () => {
+  const { navigateTo } = useNavigation();
+
   const quickLinks = [
-    { label: 'Home', href: '#' },
-    { label: 'About Us', href: '#our-story' },
-    { label: 'Programs', href: '#fleet-renewal' },
-    { label: 'The Summit', href: '#summit' },
-    { label: 'Contact', href: '#contact' }
+    { label: 'Home', page: 'home' },
+    { label: 'Our Story & Values', page: 'story' },
+    { label: 'Our Programs', page: 'programs' },
+    { label: 'The Summit', page: 'summit' },
+    { label: 'Contact Us', page: 'contact' }
   ];
 
   const programs = [
-    { label: 'Policy Reforms', href: '#legal-reforms' },
-    { label: 'Fleet Renewal', href: '#fleet-renewal' },
-    { label: 'Leadership Training', href: '#transformational-leadership' },
-    { label: 'Transport Summit', href: '#summit' },
-    { label: 'Excellence Awards', href: '#awards' },
-    { label: 'Breathe Cities', href: '#breathe-cities' }
+    { label: 'Legal & Policy Reforms', page: 'programs/legal-reforms' },
+    { label: 'Fleet Renewal Initiative', page: 'programs/fleet-renewal' },
+    { label: 'Transformational Leadership', page: 'programs/transformational-leadership' },
+    { label: 'Breathe Cities Campaign', page: 'programs/breathe-cities' }
   ];
 
   const eventsAndHubs = [
-    { label: 'Transport Summit & Expo', href: 'https://external-summit-website.com' },
-    { label: 'Leadership Awards & Gala', href: '#awards-gala' },
-    { label: 'Media Center & News', href: '#media' }
+    { label: 'News & Updates', page: 'news' },
+    { label: 'Blog', page: 'blog' },
+    { label: 'Resources', page: 'resources' },
+    { label: 'FAQs', page: 'faq' }
   ];
 
   const socialLinks = [
-    { icon: 'twitter', href: '#' },
-    { icon: 'linkedin', href: '#' },
-    { icon: 'facebook', href: '#' },
-    { icon: 'instagram', href: '#' }
+    { icon: 'twitter', href: 'https://x.com/napta_alliance' },
+    { icon: 'linkedin', href: 'https://www.linkedin.com/company/88047507/' },
+    { icon: 'facebook', href: 'https://web.facebook.com/uchukuzitv/' },
+    { icon: 'instagram', href: 'https://www.instagram.com/napta.alliance/' }
   ];
 
   const SocialIcon = ({ icon, className = '' }) => {
@@ -102,6 +104,8 @@ const Footer = () => {
                 <motion.a
                   key={social.icon}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-7 h-7 sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-white/10 hover:bg-napta-green rounded-lg flex items-center justify-center transition-all duration-300 hover:shadow-lg hover:shadow-napta-green/20"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
@@ -133,8 +137,12 @@ const Footer = () => {
                   transition={{ duration: 0.3, delay: 0.2 + idx * 0.05 }}
                 >
                   <a
-                    href={link.href}
-                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo(link.page);
+                    }}
+                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group cursor-pointer"
                   >
                     {link.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-napta-green transition-all duration-300 group-hover:w-full"></span>
@@ -161,8 +169,12 @@ const Footer = () => {
                   transition={{ duration: 0.3, delay: 0.25 + idx * 0.05 }}
                 >
                   <a
-                    href={program.href}
-                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo(program.page);
+                    }}
+                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group cursor-pointer"
                   >
                     {program.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-napta-green transition-all duration-300 group-hover:w-full"></span>
@@ -190,10 +202,12 @@ const Footer = () => {
                   transition={{ duration: 0.3, delay: 0.3 + idx * 0.05 }}
                 >
                   <a
-                    href={item.href}
-                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group"
-                    target={item.href.startsWith('http') ? '_blank' : '_self'}
-                    rel={item.href.startsWith('http') ? 'noopener noreferrer' : ''}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo(item.page);
+                    }}
+                    className="text-blue-200 hover:text-napta-green text-xs sm:text-sm transition-colors duration-300 relative group cursor-pointer"
                   >
                     {item.label}
                     <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-napta-green transition-all duration-300 group-hover:w-full"></span>

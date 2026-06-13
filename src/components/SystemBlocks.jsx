@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import trainingImage from '../assets/home/training.jpeg';
 
 const SystemBlocks = () => {
   const pillars = [
@@ -64,25 +65,19 @@ const SystemBlocks = () => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
                 whileHover={{ y: -5 }}
-                className="group relative overflow-hidden rounded-xl sm:rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-napta-green/30 hover:bg-white/8 transition-all duration-500 flex-1 lg:min-h-[210px]"
+                className="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-white/20 hover:border-napta-green/40 transition-all duration-500 flex-1 lg:min-h-[210px]"
               >
-                {/* Background Image */}
-                <div 
-                  className="absolute inset-0 bg-cover bg-center"
-                  style={{ 
-                    backgroundImage: 'url("https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000")' 
-                  }}
-                ></div>
-                
-                {/* Dark Overlay for Text Readability */}
-                <div className="absolute inset-0 bg-slate-900/60"></div>
-                
-                {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-napta-green/0 to-napta-blue/0 group-hover:from-napta-green/10 group-hover:to-napta-blue/10 transition-all duration-500"></div>
-                
+                <img
+                  src={trainingImage}
+                  alt=""
+                  className="absolute inset-0 w-full h-full object-cover object-center"
+                />
+
                 <div className="p-4 sm:p-6 relative z-10 h-full flex flex-col justify-end">
-                  <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-white transition-all duration-300 mb-2 sm:mb-2.5 tracking-tight">{pillars[1].title}</h4>
-                  <p className="text-slate-400/80 text-xs sm:text-sm leading-relaxed font-normal group-hover:text-slate-300 transition-all duration-300">
+                  <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-2.5 tracking-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
+                    {pillars[1].title}
+                  </h4>
+                  <p className="text-white text-xs sm:text-sm leading-relaxed font-medium [text-shadow:0_1px_10px_rgba(0,0,0,0.9)]">
                     Translating rigorous research into actionable, on-the-ground knowledge, custom toolkits, and scalable resources.
                   </p>
                 </div>

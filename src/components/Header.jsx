@@ -17,10 +17,11 @@ function Header() {
     {
       label: 'Programs',
       items: [
-        { label: 'Legal & Policy Reforms', href: '#legal-reforms' },
-        { label: 'Fleet Renewal Initiative', href: '#fleet-renewal' },
-        { label: 'Transformational Leadership', href: '#transformational-leadership' },
-        { label: 'Breathe Cities Campaign', href: '#breathe-cities' }
+        { label: 'All Programs', href: 'programs', isPage: true },
+        { label: 'Legal & Policy Reforms', href: 'programs/legal-reforms', isPage: true },
+        { label: 'Fleet Renewal Initiative', href: 'programs/fleet-renewal', isPage: true },
+        { label: 'Transformational Leadership', href: 'programs/transformational-leadership', isPage: true },
+        { label: 'Breathe Cities Campaign', href: 'programs/breathe-cities', isPage: true }
       ]
     }
   ]
@@ -180,11 +181,19 @@ function Header() {
             />
           </a>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-2">
+          {/* Desktop & Tablet Navigation */}
+          <nav className="hidden md:flex items-center gap-2">
             {menuItems.map((menu, idx) => (
               <div key={idx} className="relative group">
-                <button className="nav-link px-3 py-2 flex items-center gap-1.5 rounded-lg transition-all duration-300">
+                <button
+                  onClick={(e) => {
+                    if (menu.label === 'Programs') {
+                      e.preventDefault();
+                      navigateTo('programs');
+                    }
+                  }}
+                  className="nav-link px-3 py-2 flex items-center gap-1.5 rounded-lg transition-all duration-300"
+                >
                   {menu.label}
                   <svg className="w-4 h-4 transition-all duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -196,7 +205,7 @@ function Header() {
                       <a
                         key={i}
                         href={item.isPage ? '#' : item.href}
-                        className={`dropdown-link px-4 py-3 text-sm rounded-lg relative group/item ${item.isPage && currentPage === item.href ? 'bg-napta-green/5' : ''}`}
+                        className={`dropdown-link px-4 py-3 text-sm rounded-lg relative group/item ${item.isPage && (currentPage === item.href || currentPage.startsWith('programs/')) && item.href.startsWith('programs/') ? 'bg-napta-green/5' : item.isPage && currentPage === item.href ? 'bg-napta-green/5' : ''}`}
                         onClick={(e) => {
                           if (item.isPage) {
                             e.preventDefault();
@@ -215,20 +224,43 @@ function Header() {
                 </div>
               </div>
             ))}
-            <a href="#summit" className="nav-link px-3 py-2 rounded-lg transition-all duration-300">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('summit');
+              }} 
+              className={`nav-link px-3 py-2 rounded-lg transition-all duration-300 ${currentPage === 'summit' ? 'text-napta-green' : ''}`}
+            >
               The Summit
+            </a>
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                navigateTo('resources');
+              }} 
+              className={`nav-link px-3 py-2 rounded-lg transition-all duration-300 ${currentPage === 'resources' ? 'text-napta-green' : ''}`}
+            >
+              Resources
             </a>
           </nav>
 
           {/* CTA Button */}
-          <a href="#partner" className="hidden sm:inline-flex items-center bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold px-5 py-2 rounded-lg shadow-md shadow-napta-green/20 hover:shadow-lg hover:shadow-napta-green/30 transition-all duration-300 text-xs sm:text-sm relative overflow-hidden group">
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              navigateTo('contact');
+            }}
+            className="hidden sm:inline-flex items-center bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold px-5 py-2 rounded-lg shadow-md shadow-napta-green/20 hover:shadow-lg hover:shadow-napta-green/30 transition-all duration-300 text-xs sm:text-sm relative overflow-hidden group"
+          >
             <span className="absolute inset-0 bg-gradient-to-r from-napta-blue to-napta-green opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             <span className="relative">Partner With Us</span>
-          </a>
+          </button>
 
           {/* Hamburger Menu Button */}
           <button
-            className="lg:hidden p-2.5 rounded-xl text-napta-navy hover:bg-gradient-to-r from-blue-50 to-green-50 transition-all duration-300 shadow-sm hover:shadow-md"
+            className="md:hidden p-2.5 rounded-xl text-napta-navy hover:bg-gradient-to-r from-blue-50 to-green-50 transition-all duration-300 shadow-sm hover:shadow-md"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? (
@@ -254,7 +286,7 @@ function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 bg-black/30 lg:hidden z-40"
+              className="fixed inset-0 bg-black/30 md:hidden z-40"
               onClick={() => setMobileMenuOpen(false)}
             />
 
@@ -264,7 +296,7 @@ function Header() {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: -20, scale: 0.95 }}
               transition={{ duration: 0.3, type: "spring", bounce: 0.4 }}
-              className="lg:hidden fixed top-20 left-4 right-4 z-50"
+              className="md:hidden fixed top-20 left-4 right-4 z-50"
             >
               <div className="bg-white rounded-3xl shadow-2xl border border-napta-blue/20 overflow-hidden">
                 {/* Menu Items */}
@@ -294,7 +326,7 @@ function Header() {
                                 setMobileMenuOpen(false);
                               }
                             }}
-                            className={`block py-1.5 text-gray-700 text-xs hover:text-napta-navy font-medium transition-all duration-300 ${item.isPage && currentPage === item.href ? 'text-napta-green' : ''}`}
+                            className={`block py-1.5 text-gray-700 text-xs hover:text-napta-navy font-medium transition-all duration-300 ${item.isPage && (currentPage === item.href || (currentPage.startsWith('programs/') && item.href.startsWith('programs/'))) ? 'text-napta-green' : ''}`}
                           >
                             {item.label}
                           </a>
@@ -307,26 +339,61 @@ function Header() {
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.3 }}
-                    href="#summit"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green"
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo('summit');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green transition-all duration-300 ${currentPage === 'summit' ? 'text-napta-green' : ''}`}
                   >
                     The Summit
+                  </motion.a>
+                  <motion.a
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.35 }}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo('resources');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green transition-all duration-300 ${currentPage === 'resources' ? 'text-napta-green' : ''}`}
+                  >
+                    Resources
+                  </motion.a>
+                  <motion.a
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.4 }}
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      navigateTo('faq');
+                      setMobileMenuOpen(false);
+                    }}
+                    className={`block py-1.5 text-napta-navy font-semibold text-xs sm:text-sm hover:text-napta-green transition-all duration-300 ${currentPage === 'faq' ? 'text-napta-green' : ''}`}
+                  >
+                    FAQs
                   </motion.a>
 
                   <motion.div
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4 }}
+                    transition={{ delay: 0.45 }}
                     className="pt-3"
                   >
-                    <a
-                      href="#partner"
-                      onClick={() => setMobileMenuOpen(false)}
+                    <button
+                      onClick={(e) => {
+                        e.preventDefault();
+                        navigateTo('contact');
+                        setMobileMenuOpen(false);
+                      }}
                       className="block w-full text-center bg-gradient-to-r from-napta-green to-napta-blue hover:from-napta-lightGreen hover:to-napta-brightBlue text-white font-semibold px-6 py-2.5 rounded-lg shadow-md shadow-napta-green/20 transition-all duration-300 text-xs sm:text-sm"
                     >
                       Partner With Us
-                    </a>
+                    </button>
                   </motion.div>
                 </div>
               </div>

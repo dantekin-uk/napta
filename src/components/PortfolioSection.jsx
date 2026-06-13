@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { useNavigation } from '../contexts/NavigationContext';
+import fleetImage from '../assets/home/fleet.jpg';
+import breatheImage from '../assets/home/breathe.jpeg';
+import policyImage from '../assets/home/policy.jpg';
 
 const layoutSpring = { type: "spring", stiffness: 180, damping: 28, mass: 0.85 };
 const contentSpring = { type: "spring", stiffness: 220, damping: 30, mass: 0.7 };
@@ -12,33 +16,33 @@ const portfolios = [
     headline: "Modernizing public transport.",
     body: "Anchored on Training, Restructuring, and Financing. We equip operators with essential skills and facilitate access to affordable capital for critical fleet upgrades.",
     cta: "Explore Fleet Renewal",
-    image:
-      "https://images.unsplash.com/photo-1542281286-9e0a16bb7366?auto=format&fit=crop&q=80&w=1200",
+    image: fleetImage,
+    programId: "fleet-renewal"
   },
   {
     title: "Breathe Cities",
     headline: "Improving urban air quality.",
     body: "A comprehensive advocacy campaign empowering local communities to track air pollution and participate directly in environmental policy development.",
     cta: "Discover Breathe Cities",
-    image:
-      "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&q=80&w=1200",
+    image: breatheImage,
+    programId: "breathe-cities"
   },
   {
     title: "Policy Reforms",
     headline: "Aligning regulatory frameworks.",
     body: "We audit existing transport policies to identify critical gaps. By engaging government agencies and operators, we drive systemic reforms for safe, sustainable mobility.",
     cta: "View Reform Initiatives",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
+    image: policyImage,
+    programId: "legal-reforms"
   },
 ];
 
-const PortfolioCard = ({ portfolio, index, isActive, onInteract }) => (
+const PortfolioCard = ({ portfolio, index, isActive, onInteract, onNavigate }) => (
   <motion.div
     layout
     layoutId={`portfolio-card-${index}`}
     onMouseEnter={() => onInteract(index)}
-    onClick={() => onInteract(index)}
+    onClick={() => onNavigate(portfolio.programId)}
     animate={{ flex: isActive ? 3.2 : 1 }}
     transition={{ layout: layoutSpring, flex: layoutSpring }}
     className="relative flex min-h-[260px] lg:min-h-[320px] rounded-xl lg:rounded-2xl overflow-hidden cursor-pointer group shadow-lg shadow-napta-navy/8 ring-1 ring-slate-900/5 will-change-[flex]"
@@ -50,7 +54,7 @@ const PortfolioCard = ({ portfolio, index, isActive, onInteract }) => (
       transition={layoutSpring}
     />
 
-    <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/95 via-napta-navy/55 to-napta-navy/20" />
+    <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/95 via-napta-navy/65 to-napta-navy/30" />
 
     <motion.div
       className="absolute inset-0 bg-gradient-to-br from-napta-green/25 via-transparent to-napta-blue/15"
@@ -59,8 +63,8 @@ const PortfolioCard = ({ portfolio, index, isActive, onInteract }) => (
     />
 
     <motion.div
-      className="absolute inset-0 bg-black/20 backdrop-blur-[1px]"
-      animate={{ opacity: isActive ? 0.15 : 0.2 }}
+      className="absolute inset-0 bg-black/25 backdrop-blur-[1px]"
+      animate={{ opacity: isActive ? 0.2 : 0.25 }}
       transition={{ duration: 0.4, ease: fadeEase }}
     />
 
@@ -109,6 +113,10 @@ const PortfolioCard = ({ portfolio, index, isActive, onInteract }) => (
         </p>
 
         <motion.button
+          onClick={(e) => {
+            e.stopPropagation();
+            onNavigate(portfolio.programId);
+          }}
           className="group/btn relative inline-flex items-center gap-2 bg-napta-green hover:bg-napta-lightGreen text-white font-medium px-3.5 py-2 rounded-lg text-xs shadow-md shadow-napta-green/20"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -144,7 +152,7 @@ const PortfolioCard = ({ portfolio, index, isActive, onInteract }) => (
   </motion.div>
 );
 
-const MobilePortfolioCard = ({ portfolio, index }) => (
+const MobilePortfolioCard = ({ portfolio, index, onNavigate }) => (
   <motion.div
     initial={{ opacity: 0, y: 16 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -156,8 +164,9 @@ const MobilePortfolioCard = ({ portfolio, index }) => (
       className="absolute inset-0 bg-cover bg-center"
       style={{ backgroundImage: `url(${portfolio.image})` }}
     />
-    <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/95 via-napta-navy/60 to-napta-navy/25" />
+    <div className="absolute inset-0 bg-gradient-to-t from-napta-navy/95 via-napta-navy/65 to-napta-navy/30" />
     <div className="absolute inset-0 bg-gradient-to-br from-napta-green/20 via-transparent to-napta-blue/10" />
+    <div className="absolute inset-0 bg-black/25" />
 
     <div className="relative z-10 h-full flex flex-col justify-between p-4">
       <div className="flex items-start justify-between gap-2">
@@ -178,7 +187,10 @@ const MobilePortfolioCard = ({ portfolio, index }) => (
         <p className="text-white/70 text-xs leading-relaxed mb-3 line-clamp-3">
           {portfolio.body}
         </p>
-        <button className="inline-flex items-center gap-1.5 bg-napta-green text-white font-medium px-3 py-2 rounded-lg text-xs shadow-md shadow-napta-green/20">
+        <button
+          onClick={() => onNavigate(portfolio.programId)}
+          className="inline-flex items-center gap-1.5 bg-napta-green text-white font-medium px-3 py-2 rounded-lg text-xs shadow-md shadow-napta-green/20"
+        >
           {portfolio.cta}
           <ArrowRight size={13} />
         </button>
@@ -189,6 +201,11 @@ const MobilePortfolioCard = ({ portfolio, index }) => (
 
 const PortfolioSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { navigateTo } = useNavigation();
+
+  const handleNavigate = (programId) => {
+    navigateTo(`programs/${programId}`);
+  };
 
   return (
     <section className="py-10 sm:py-14 bg-canvas overflow-hidden relative">
@@ -232,6 +249,7 @@ const PortfolioSection = () => {
                   index={index}
                   isActive={activeIndex === index}
                   onInteract={setActiveIndex}
+                  onNavigate={handleNavigate}
                 />
               ))}
             </motion.div>
@@ -245,6 +263,7 @@ const PortfolioSection = () => {
                   key={portfolio.title}
                   portfolio={portfolio}
                   index={index}
+                  onNavigate={handleNavigate}
                 />
               ))}
             </div>
