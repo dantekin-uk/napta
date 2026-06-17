@@ -12,13 +12,15 @@ const News = () => {
       date: 'June 1, 2025',
       headline: 'NAPTA Partners with Taita Taveta County Government',
       image: new1Image,
-      type: 'tall'
+      type: 'tall',
+      isVideo: false
     },
     {
       date: 'May 29, 2025',
       headline: 'NAPTA CEO Featured on Citizen TV Discussing Urban Air Quality',
       image: new2Image,
-      type: 'short'
+      type: 'short',
+      isVideo: true
     }
   ];
 
@@ -68,7 +70,7 @@ const News = () => {
 
         {/* 2-Column Asymmetrical Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-6">
-          {/* Left Column - Tall Card (60% width) */}
+          {/* Left Column - Tall Card (60% width) - Taita Taveta Partnership */}
           <motion.div
             className="lg:col-span-7"
             initial={{ opacity: 0, x: -20 }}
@@ -77,15 +79,15 @@ const News = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
           >
             <div className="w-full group cursor-pointer">
-              {/* Tall Image Container - Reduced Height (16:8 = 2:1 → 16:9 wider) */}
+              {/* Tall Image Container */}
               <motion.div
                 className="relative w-full aspect-[16/9] overflow-hidden rounded-xl sm:rounded-2xl"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
                 <img
-                  src={newsItems[1].image}
-                  alt={newsItems[1].headline}
+                  src={newsItems[0].image}
+                  alt={newsItems[0].headline}
                   className="w-full h-full object-cover"
                 />
 
@@ -95,17 +97,17 @@ const News = () => {
                 {/* Text Overlay - Absolute Bottom */}
                 <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 lg:p-6">
                   <p className="text-white/80 text-[10px] sm:text-[11px] font-medium mb-1.5 sm:mb-2">
-                    {newsItems[1].date}
+                    {newsItems[0].date}
                   </p>
                   <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-white leading-tight">
-                    {newsItems[1].headline}
+                    {newsItems[0].headline}
                   </h3>
                 </div>
               </motion.div>
             </div>
           </motion.div>
 
-          {/* Right Column - Short Card (40% width) */}
+          {/* Right Column - Short Card (40% width) - CEO on Citizen TV */}
           <motion.div
             className="lg:col-span-5"
             initial={{ opacity: 0, x: 20 }}
@@ -114,26 +116,32 @@ const News = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <div className="w-full group cursor-pointer">
-              {/* Image Container - 16:9 Aspect Ratio */}
+              {/* YouTube Video Embed */}
               <motion.div
                 className="relative w-full aspect-video overflow-hidden rounded-xl sm:rounded-2xl mb-4 sm:mb-5"
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.4, ease: 'easeOut' }}
               >
-                <img
-                  src={newsItems[0].image}
-                  alt={newsItems[0].headline}
-                  className="w-full h-full object-cover"
-                />
+                <iframe
+                  src="https://www.youtube.com/embed/kYP-BJgP-zI?si=SdXGW7dh-0C0FLY5"
+                  width="100%"
+                  height="100%"
+                  style={{ border: '0' }}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                ></iframe>
               </motion.div>
 
-              {/* Text Content - Underneath Image */}
+              {/* Text Content - Underneath Video */}
               <div>
                 <p className="text-slate-500 text-[10px] sm:text-[11px] font-medium mb-1.5 sm:mb-2">
-                  {newsItems[0].date}
+                  {newsItems[1].date}
                 </p>
                 <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-slate-900 leading-tight group-hover:text-slate-700 transition-colors duration-300">
-                  {newsItems[0].headline}
+                  {newsItems[1].headline}
                 </h3>
               </div>
             </div>

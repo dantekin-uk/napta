@@ -11,7 +11,7 @@ const blogPost = {
   excerpt: 'Exploring how NAPTA and partners are working to reduce air pollution in Nairobi by transforming the public transport sector.',
   author: 'Charles Aholi',
   date: 'May 29, 2025',
-  readTime: '10 min read',
+  readTime: '3 min read',
   category: 'Environment',
   image: basigoImage,
   tags: ['Environment', 'Air Quality', 'Nairobi', 'Sustainable Transport'],

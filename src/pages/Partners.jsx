@@ -18,7 +18,6 @@ import partner17_1 from '../assets/partners/partner17 (1).jpg';
 import partner18_1 from '../assets/partners/partner18 (1).png';
 import partner19 from '../assets/partners/partner19.jpg';
 import partner20 from '../assets/partners/partner20.jpeg';
-import partner22 from '../assets/partners/partner22.png';
 import partner23_1 from '../assets/partners/partner23 (1).png';
 import partner28 from '../assets/partners/partner28.jpeg';
 import partner26 from '../assets/partners/partner26.jpg';
@@ -45,7 +44,6 @@ const categories = [
       partner18_1,
       partner19,
       partner20,
-      partner22,
       partner23_1,
       partner28,
       partner26,

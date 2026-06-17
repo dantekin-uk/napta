@@ -30,7 +30,8 @@ const newsData = [
       'Build institutional capacity of the County Transport and Safety Committee (CTSC)',
       'Jointly mobilize financial and technical resources to implement agreed programs'
     ],
-    image: new1Image
+    image: new1Image,
+    isVideo: false
   },
   {
     id: 'citizen-tv-interview',
@@ -44,7 +45,8 @@ const newsData = [
       'Topic: Reducing air pollution in urban cities',
       'Date: May 29, 2025'
     ],
-    image: new2Image
+    image: new2Image,
+    isVideo: true
   }
 ];
 
@@ -63,13 +65,31 @@ const NewsCard = ({ news, index, scrollToStory }) => {
       className="group cursor-pointer h-full"
     >
       <div className="h-full bg-white rounded-2xl overflow-hidden border border-slate-200/50 hover:border-slate-300 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col">
-        {/* Image */}
-        <div className="relative aspect-video overflow-hidden">
-          <img
-            src={news.image}
-            alt={news.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+        {/* Image or Video */}
+        <div className="relative overflow-hidden">
+          {news.isVideo ? (
+            <div className="aspect-video">
+              <iframe
+                src="https://www.youtube.com/embed/kYP-BJgP-zI?si=SdXGW7dh-0C0FLY5"
+                width="100%"
+                height="100%"
+                style={{ border: '0' }}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              ></iframe>
+            </div>
+          ) : (
+            <div className="aspect-video">
+              <img
+                src={news.image}
+                alt={news.title}
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+            </div>
+          )}
           <div className="absolute top-4 left-4">
             <span className="px-3 py-1 rounded-full bg-gradient-to-r from-napta-green to-napta-blue text-white text-[10px] sm:text-xs font-semibold">
               {news.category}
@@ -248,14 +268,32 @@ const NewsPage = () => {
             >
               <div className="bg-white rounded-2xl overflow-hidden border border-slate-200/70 shadow-sm">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
-                  {/* Image */}
+                  {/* Image or Video */}
                   <div className="lg:col-span-5">
-                    <div className="h-full aspect-video lg:aspect-auto">
-                      <img
-                        src={news.image}
-                        alt={news.title}
-                        className="w-full h-full object-cover"
-                      />
+                    <div className="h-full">
+                      {news.isVideo ? (
+                        <div className="aspect-video">
+                          <iframe
+                            src="https://www.youtube.com/embed/kYP-BJgP-zI?si=SdXGW7dh-0C0FLY5"
+                            width="100%"
+                            height="100%"
+                            style={{ border: '0' }}
+                            title="YouTube video player"
+                            frameBorder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerPolicy="strict-origin-when-cross-origin"
+                            allowFullScreen
+                          ></iframe>
+                        </div>
+                      ) : (
+                        <div className="aspect-video lg:aspect-auto">
+                          <img
+                            src={news.image}
+                            alt={news.title}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                      )}
                     </div>
                   </div>
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { useNavigation } from '../contexts/NavigationContext';
 import { BookOpen, Users, Leaf, Award, Zap, Wind } from 'lucide-react';
@@ -109,7 +110,15 @@ const ProgramsPage = () => {
   const { navigateTo } = useNavigation();
 
   return (
-    <div className="min-h-screen bg-canvas">
+    <>
+      <Helmet>
+        <title>Our Programs | NAPTA - National Public Transport Alliance</title>
+        <meta name="description" content="Discover NAPTA's transformative programs driving sustainable public transport, leadership excellence, policy reform, and cleaner air across Africa." />
+        <meta property="og:title" content="Our Programs | NAPTA - National Public Transport Alliance" />
+        <meta property="og:description" content="Discover NAPTA's transformative programs driving sustainable public transport, leadership excellence, policy reform, and cleaner air across Africa." />
+        <meta property="og:type" content="website" />
+      </Helmet>
+      <div className="min-h-screen bg-canvas">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-napta-navy via-napta-blue to-napta-brightBlue rounded-b-[2rem] sm:rounded-b-[3rem] shadow-xl overflow-hidden py-10 sm:py-12 mx-1 sm:mx-1">
         <div className="absolute inset-0 opacity-20">
@@ -240,6 +249,7 @@ const ProgramsPage = () => {
         </div>
       </section>
     </div>
+    </>
   );
 };
 

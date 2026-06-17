@@ -6,29 +6,15 @@ import resourcesHeroImage from '../assets/home/policy.jpg';
 // Import all PDFs
 import summit2024PDF from '../assets/resources/2024-transport-summit.pdf';
 import summit2025PDF from '../assets/resources/KNPTS 2025 REPORT 2025.pdf';
-import breatheCitiesPDF from '../assets/resources/breathe-cities-campaign.pdf';
 import cleanEnergyPDF from '../assets/resources/clean-energy-report.pdf';
 import eMobilityPDF from '../assets/resources/e-mobility-transition-nairobi.pdf';
-import firstDocPDF from '../assets/resources/first-doc-report.pdf';
 import formalizationPDF from '../assets/resources/formalization-matatu-report.pdf';
-import greenMobilityPDF from '../assets/resources/green-mobility-report.pdf';
-import naptaReportPDF from '../assets/resources/napta-report.pdf';
+import naptaAnual from '../assets/resources/naptaAnual.pdf';
 import partnershipPDF from '../assets/resources/napta-safetek-komint-partnership.pdf';
 import paratransitRoundtablePDF from '../assets/resources/paratransit-roundtable.pdf';
 import paratransitStudyPDF from '../assets/resources/paratransit-study-analysis.pdf';
-import urbanGreeningPDF from '../assets/resources/urban-greening-report.pdf';
-
 const resourcesData = [
-  {
-    id: 'summit-2024',
-    title: '2024 Transport Summit Report',
-    description: 'Full report from the inaugural Nairobi Metropolitan Area Matatu Summit & Expo.',
-    category: 'Summits & Events',
-    date: '2024',
-    file: summit2024PDF,
-    fileSize: '1.2 MB'
-  },
-  {
+   {
     id: 'summit-2025',
     title: 'KNPTS 2025 Summit Report',
     description: 'Complete report from the Kenya National Public Transport Summit 2025.',
@@ -38,17 +24,18 @@ const resourcesData = [
     fileSize: '1.8 MB'
   },
   {
-    id: 'breathe-cities',
-    title: 'Breathe Cities Campaign',
-    description: 'Comprehensive report on the Breathe Cities initiative to improve air quality in Nairobi.',
-    category: 'Campaigns',
+    id: 'summit-2024',
+    title: '2024 Transport Summit Report',
+    description: 'Full report from the inaugural Nairobi Metropolitan Area Matatu Summit & Expo.',
+    category: 'Summits & Events',
     date: '2024',
-    file: breatheCitiesPDF,
-    fileSize: '0.9 MB'
+    file: summit2024PDF,
+    fileSize: '1.2 MB'
   },
+ 
   {
     id: 'clean-energy',
-    title: 'Clean Energy Report',
+    title: ' Paratransit PSV Report',
     description: 'Report detailing clean energy solutions for public transportation in Kenya.',
     category: 'Research & Reports',
     date: '2025',
@@ -64,15 +51,7 @@ const resourcesData = [
     file: eMobilityPDF,
     fileSize: '2.1 MB'
   },
-  {
-    id: 'first-doc',
-    title: 'First Document Report',
-    description: 'Initial foundational report outlining NAPTA\'s mission and objectives.',
-    category: 'Organization',
-    date: '2023',
-    file: firstDocPDF,
-    fileSize: '0.7 MB'
-  },
+ 
   {
     id: 'formalization',
     title: 'Matatu Formalization Report',
@@ -82,28 +61,20 @@ const resourcesData = [
     file: formalizationPDF,
     fileSize: '1.4 MB'
   },
-  {
-    id: 'green-mobility',
-    title: 'Green Mobility Report',
-    description: 'Strategies and recommendations for green and sustainable mobility solutions.',
-    category: 'Research & Reports',
-    date: '2025',
-    file: greenMobilityPDF,
-    fileSize: '1.6 MB'
-  },
+ 
   {
     id: 'napta-report',
     title: 'NAPTA Annual Report',
     description: 'Annual report highlighting NAPTA\'s achievements and initiatives.',
     category: 'Organization',
     date: '2024',
-    file: naptaReportPDF,
+    file: naptaAnual,
     fileSize: '1.1 MB'
   },
   {
     id: 'partnership',
-    title: 'NAPTA-Safetek-Komint Partnership',
-    description: 'Details of the strategic partnership between NAPTA, Safetek, and Komint.',
+    title: 'NAPTA-Commute PSV Digitization Partnership',
+    description: 'Details of the strategic partnership between NAPTA, Commute PSV.',
     category: 'Partnerships',
     date: '2024',
     file: partnershipPDF,
@@ -111,7 +82,7 @@ const resourcesData = [
   },
   {
     id: 'paratransit-roundtable',
-    title: 'Paratransit Roundtable',
+    title: 'Paratransit Roundtable Report',
     description: 'Report from the paratransit stakeholder roundtable discussions.',
     category: 'Summits & Events',
     date: '2025',
@@ -120,22 +91,14 @@ const resourcesData = [
   },
   {
     id: 'paratransit-study',
-    title: 'Paratransit Study & Analysis',
-    description: 'In-depth analysis of the paratransit sector in Kenya.',
+    title: 'Study for socially just paratransit system in Nairobi',
+    description: 'In-depth analysis of the paratransit sector in Nairobi.',
     category: 'Research & Reports',
     date: '2024',
     file: paratransitStudyPDF,
     fileSize: '1.3 MB'
   },
-  {
-    id: 'urban-greening',
-    title: 'Urban Greening Report',
-    description: 'Report on urban greening initiatives and their impact on public transport.',
-    category: 'Research & Reports',
-    date: '2025',
-    file: urbanGreeningPDF,
-    fileSize: '1.0 MB'
-  }
+
 ];
 
 const categories = ['All', 'Summits & Events', 'Research & Reports', 'Campaigns', 'Partnerships', 'Organization'];

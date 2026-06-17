@@ -73,6 +73,9 @@ const SystemBlocks = () => {
                   className="absolute inset-0 w-full h-full object-cover object-center"
                 />
 
+                {/* Slight overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/70 via-slate-900/30 to-transparent"></div>
+
                 <div className="p-4 sm:p-6 relative z-10 h-full flex flex-col justify-end">
                   <h4 className="text-base sm:text-lg lg:text-xl font-bold text-white mb-2 sm:mb-2.5 tracking-tight [text-shadow:0_2px_12px_rgba(0,0,0,0.85)]">
                     {pillars[1].title}
