@@ -69,7 +69,7 @@ const AnnualEvents = () => {
               <div className="flex items-center gap-2 mb-5 pl-4">
                 <span className="w-4 h-px bg-slate-300" />
                 <span className="text-[10px] sm:text-xs text-slate-400 font-medium tracking-[0.1em] uppercase">
-                  Nairobi · 30 Sep – 2 Oct 2026
+                  Nairobi · 4 Nov – 6 Nov 2026
                 </span>
               </div>
 

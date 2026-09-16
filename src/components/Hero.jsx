@@ -13,7 +13,7 @@ const SLIDE_DURATIONS = [10000, 8000, 8000]; // summit stays longer
 
 const Hero = () => {
   const { navigateTo } = useNavigation();
-  const summitDate = new Date('2026-09-30T09:00:00');
+  const summitDate = new Date('2026-11-04T09:00:00');
   const summitTheme = "Building Safe, Sustainable, Inclusive and Integrated Transport Systems for the people.";
   const summitVenue = "KICC, Nairobi, Kenya";
 
@@ -46,7 +46,7 @@ const Hero = () => {
       highlight: 'Summit & Expo 2026',
       theme: summitTheme,
       venue: summitVenue,
-      date: '30 Sep – 2 Oct 2026',
+      date: '4 Nov – 6 Nov 2026',
       image: heroImage,
       mobileImage: heroMobileImage,
     },
