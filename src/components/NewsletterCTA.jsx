@@ -8,8 +8,8 @@ const NewsletterCTA = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (email) {
-      // Open user's email client to send to news@napta.or.ke
-      window.location.href = `mailto:news@napta.or.ke?subject=Newsletter Subscription&body=Please subscribe me to the NAPTA newsletter. My email is: ${email}`;
+      // Open user's email client to send to dan@napta.ok.ke
+      window.location.href = `mailto:dan@napta.ok.ke?subject=Newsletter Subscription&body=Please subscribe me to the NAPTA newsletter. My email is: ${email}`;
       setIsSubscribed(true);
       setEmail('');
       setTimeout(() => setIsSubscribed(false), 3000);

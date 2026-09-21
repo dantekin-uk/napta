@@ -76,7 +76,7 @@ const ContactPage = () => {
     {
       icon: Mail,
       title: 'Email',
-      description: 'info@napta.or.ke',
+      description: 'dan@napta.ok.ke',
       color: 'from-napta-green/80 to-napta-blue/80'
     }
   ];
